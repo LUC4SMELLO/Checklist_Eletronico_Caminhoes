@@ -1,10 +1,14 @@
 from flask import Flask
 
+from servicos.servico_banco_dados import inicializar_bancos_dados 
+
 from routes.homepage import homepage_bp
 from routes.checklist_html import checklist_bp
 from routes.checklist_post import checklist_post_bp
 from routes.login import login_bp
 from routes.cadastro import cadastro_bp
+
+inicializar_bancos_dados()
 
 app = Flask(__name__)
 app.register_blueprint(homepage_bp)
