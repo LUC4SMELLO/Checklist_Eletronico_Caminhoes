@@ -15,7 +15,7 @@ def login():
         resultado = buscar_usuario(nome_completo)
 
         if resultado:
-            return redirect(url_for("checklist.checklist"))
+            return redirect(url_for("checklist.checklist", nome_usuario=nome_completo))
             
         else:
             erro = "Usuário Não Encontrado."
