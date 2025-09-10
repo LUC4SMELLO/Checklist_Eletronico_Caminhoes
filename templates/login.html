@@ -33,7 +33,7 @@
 
     <h1>Login</h1>
 
-    <form class="form-style">
+    <form action="/login" method="post" class="form-style">
 
         <label for="nome_completo">Nome Completo:</label> <br>
         <input class="input-style" type="text" id="nome_completo" name="nome_completo">
@@ -41,7 +41,7 @@
         <br><br>
 
         <label for="senha">Senha:</label> <br>
-        <input class="input-style" type="password" class="senha" id="senha" name="senha">
+        <input class="input-style" type="password" id="senha" name="senha">
 
         <br><br>
 
@@ -49,6 +49,9 @@
 
         <button class="button-submit" type="submit">Entrar</button>
 
+        {% if erro %}
+            <p style="color:red;">{{erro}}</p>
+        {% endif %}
 
     </form>
     
