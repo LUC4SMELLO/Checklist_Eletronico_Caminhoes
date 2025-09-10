@@ -1,7 +1,26 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, request, redirect, url_for, render_template
 
-login_bp = Blueprint("/login", __name__)
+from database.banco_dados_usuarios import buscar_usuario
 
-@login_bp.route("/login")
+login_bp = Blueprint("login", __name__)
+
+@login_bp.route("/login", methods=["GET", "POST"])
 def login():
+
+    if request.method == "POST":
+
+        nome_completo = request.form.get("nome_completo")
+        senha = request.form.get("senha")
+
+        resultado = buscar_usuario(nome_completo)
+
+        if resultado:
+            return redirect(url_for("checklist.checklist"))
+            
+        else:
+            erro = "Usuário Não Encontrado."
+
+            return render_template("login.html", erro=erro)
+        
+    
     return render_template("login.html")
