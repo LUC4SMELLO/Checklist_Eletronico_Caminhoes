@@ -61,10 +61,10 @@ def buscar_usuario(nome_completo):
     WHERE nome_completo = ?
     """, (nome_completo,)
     )
-    
-    # # conexao.commit()
-    # # conexao.close()
 
     resultado = cursor.fetchall()
+        
+    conexao.commit()
+    conexao.close()
 
     return resultado
