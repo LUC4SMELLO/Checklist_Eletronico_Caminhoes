@@ -49,3 +49,22 @@ def excluir_usuario(nome_completo, senha):
 
     conexao.commit()
     conexao.close()
+
+def buscar_usuario(nome_completo):
+
+    conexao = conectar_banco_dados_usuarios()
+    cursor = conexao.cursor()
+
+    cursor.execute(
+    """
+    SELECT * FROM TabelaUsuarios
+    WHERE nome_completo = ?
+    """, (nome_completo,)
+    )
+    
+    # # conexao.commit()
+    # # conexao.close()
+
+    resultado = cursor.fetchall()
+
+    return resultado
