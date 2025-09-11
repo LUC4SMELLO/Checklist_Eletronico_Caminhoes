@@ -7,6 +7,7 @@ checklist_post_bp = Blueprint("checklist_post", __name__)
 def resultado_checklist():
 
     data = request.form.get("data", "vazio")
+    usuario = request.form.get("usuario", "vazio")
     caminhao = request.form.get("numero_caminhao", "vazio")
     pneu = request.form.get("pneu", "vazio")
     estepe = request.form.get("estepe", "vazio")
@@ -22,6 +23,7 @@ def resultado_checklist():
 
     inserir_checklist(
         data,
+        usuario,
         caminhao,
         pneu,
         estepe,
@@ -39,6 +41,7 @@ def resultado_checklist():
     return render_template(
         "resultado.html",
         data=data,
+        usuario=usuario,
         caminhao=caminhao,
         pneu=pneu,
         estepe=estepe,
