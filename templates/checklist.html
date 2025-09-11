@@ -16,11 +16,16 @@
     }
 
     .enviar_checklist {
-    padding: 5px 30px;
+        padding: 5px 30px;
     }
 
     .cancelar_checklist {
-    padding: 5px 30px;
+        padding: 5px 30px;
+    }
+
+    .textarea-style {
+        width: 350px;
+        height: 100px;
     }
 
     </style>
@@ -30,6 +35,8 @@
     <form action="/resultado_checklist" method="post">
 
     <h1>Checklist Diário - Coca Cola</h1>
+
+    <hr>
 
     <p>Data: <span id="dataTexto"></span></p>
     Motorista: {{nome_usuario}} <br>
@@ -53,7 +60,7 @@
     </script>
 
 
-    <label for="numero_caminhao">Selecionar Caminhão:</label>
+    <label for="numero_caminhao">Selecione o Caminhão:</label>
     <select id="numero_caminhao" name="numero_caminhao">
 
         <option value="34">34</option>
@@ -117,15 +124,23 @@
     <br>
     <br>
 
-    <label for="observacao">Observação:</label>
-    <br>
-    <textarea id="observacao" name="observacao" row="4" cols="50"></textarea>
+    <hr>
+
+    <label for="observacao"><h2>Observação:</h2></label>
+    <textarea
+        class="textarea-style"
+        id="observacao"
+        name="observacao"
+        row="6"
+        cols="50"
+        placeholder="Digite uma Observação...">
+    </textarea>
 
     </div>
 
     <br>
 
-    <button class="cancelar_checklist" type="reset">Cancelar</button>   <input class="enviar_checklist" type="submit" value="Enviar">
+    <button class="cancelar_checklist" type="reset"><b>Cancelar</b></button> <button class="enviar_checklist" type="submit"><b>Enviar</b></button>
 
     </form>
 
