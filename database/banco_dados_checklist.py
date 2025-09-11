@@ -12,6 +12,7 @@ def criar_banco_dados_checklist():
     """
     CREATE TABLE IF NOT EXISTS TabelaChecklist (
     data VARCHAR(10),
+    usuario VARCHAR(50),
     caminhao VARCHAR(2),
     pneu VARCHAR(10),
     estepe VARCHAR(10),
@@ -33,6 +34,7 @@ def criar_banco_dados_checklist():
 
 def inserir_checklist(
         data,
+        usuario,
         caminhao,
         pneu,
         estepe,
@@ -54,6 +56,7 @@ def inserir_checklist(
     """
     INSERT INTO TabelaChecklist (
     data,
+    usuario,
     caminhao,
     pneu,
     estepe,
@@ -67,9 +70,10 @@ def inserir_checklist(
     documentos_veiculo,
     observacao
     )
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """, (
             data,
+            usuario,
             caminhao,
             pneu,
             estepe,
