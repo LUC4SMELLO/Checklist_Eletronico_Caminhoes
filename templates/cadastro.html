@@ -33,7 +33,7 @@
 
     <h1>Cadastro</h1>
 
-    <form class="form-style">
+    <form action="/cadastro" method="post" class="form-style">
 
         <label for="nome_completo">Nome Completo:</label> <br>
         <input class="input-style" type="text" id="nome_completo" name="nome_completo">
@@ -48,6 +48,10 @@
         <button class="button-reset" type="reset">Cancelar</button>
 
         <button class="button-submit" type="submit">Cadastrar</button>
+
+        {% if erro %}
+            <p style="color:red;">{{erro}}</p>
+        {% endif %}
 
 
     </form>
