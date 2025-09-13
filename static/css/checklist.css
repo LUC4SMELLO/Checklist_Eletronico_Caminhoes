@@ -1,36 +1,99 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center; /* centraliza texto do container */
+    background-color: #fff;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+}
+
 header {
-    width: 100%;
     display: flex;
-    align-items: center;   /* centraliza verticalmente */
-    justify-content: left; /* centraliza horizontalmente */
-    gap: 15px; /* espaço entre logo e texto */
-    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
 header img {
-    height: 70px; /* tamanho da logo */
+    height: 70px;
 }
 
-main {
-    margin-top: 40px;
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-input[type=checkbox] {
-    transform: scale(1.3)
-}
-hr{
-    border: 3.5px solid silver;
-}
-
-.enviar_checklist {
-    padding: 5px 30px;
+textarea {
+    width: 100%;
+    max-width: 450px;
+    padding: 8px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
-.cancelar_checklist {
-    padding: 5px 30px;
+.checkbox-group {
+    display: flex;
+    flex-direction: column;   /* uma coluna de itens */
+    align-items: center;      /* centraliza o grupo no form */
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-.textarea-style {
-    width: 350px;
-    height: 100px;
+.checkbox-item {
+    display: flex;
+    align-items: center;      /* checkbox e label na mesma linha */
+    gap: 10px;
+    justify-content: flex-start; /* alinha checkbox + label juntos à esquerda do bloco */
+    width: 250px;             /* largura fixa para todas as linhas */
+}
+
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    gap: 92px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-weight: bold;
+    border: 1px solid;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+hr {
+    width: 80%;
+    border: 2px solid #ccc;
+    margin: 20px 0;
+}
+
+select {
+    text-align: center;
+}
+
+.informacoes-container {
+    text-align: left; 
+    justify-content: center;
+    margin-left: -50px;
+}
+
+
+.select-container {
+    display: flex;
+    align-items: center; /* alinha verticalmente o label com o select */
+    justify-content: center; /* centraliza horizontalmente no form */
+    gap: 10px; /* espaço entre label e select */
+    margin: 10px 0; /* espaço acima/abaixo do container */
 }

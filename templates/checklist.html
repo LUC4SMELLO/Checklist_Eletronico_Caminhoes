@@ -3,129 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>CheckList</title>
-
+    <title>Checklist Diário</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/checklist.css') }}">
-
 </head>
 <body>
-    <header>
-        <h1>Checklist Diário</h1>
-        <img src="{{ url_for('static', filename='images/logo_dbcambui_2.png') }}" alt="Logo da Empresa">
-    </header>
+    <div class="container">
+        <header>
+            <h1>Checklist Diário</h1>
+            <img src="{{ url_for('static', filename='images/logo_dbcambui_2.png') }}" alt="Logo da Empresa">
+        </header>
 
-    <form action="/resultado_checklist" method="post">
+        <form action="/resultado_checklist" method="post">
+            <hr>
 
-    
+            <div class="informacoes-container">
+                Data: <span id="dataTexto"></span><br><br>
+                Motorista: {{nome_usuario}}
+            </div>
 
-    <hr>
+            <input type="hidden" name="usuario" id="usuario">
+            <script>
+                document.getElementById("usuario").value = "{{nome_usuario}}"
+            </script>
 
-    <p>Data: <span id="dataTexto"></span></p>
-    Motorista: {{nome_usuario}} <br>
+            <input type="hidden" name="data" id="data">
+            <script>
+                const hoje = new Date();
+                const dataBR = hoje.toLocaleDateString("pt-BR");
+                document.getElementById("dataTexto").textContent = dataBR;
+                document.getElementById("data").value = dataBR;
+            </script>
+            
+            <div class="select-container">
+                <label for="numero_caminhao">Selecione o Caminhão:</label>
+                <select id="numero_caminhao" name="numero_caminhao">
+                    {% for i in range(34, 17, -1) %}
+                    <option value="{{i}}">{{i}}</option>
+                    {% endfor %}
+                </select>
+            </div>
 
-    <input type="hidden" name="usuario" id="usuario">
-    <script>
-    document.getElementById("usuario").value = "{{nome_usuario}}"
-    </script>
+            <hr>
+            
+            <h2>Itens:</h2>
 
-    <!-- Campo escondido que será enviado -->
-    <input type="hidden" name="data" id="data">
+            <div class="checkbox-group">
+                {% for item in ['Pneu', 'Estepe', 'Adesivos Refletivos', 'Cinto Segurança', 'Freio', 'Tacógrafo', 'Luzes', 'Faróis', 'Indicadores', 'Documento'] %}
+                <div class="checkbox-item">
+                    <input type="checkbox" id="{{item | lower | replace(' ', '_')}}" name="{{item | lower | replace(' ', '_') | replace('ó', 'o') | replace('ç', 'c')}}" value="ok">
+                    <label for="{{item | lower | replace(' ', '_')}}">{{item}}</label>
+                </div>
+                {% endfor %}
+            </div>
 
-    <script>
-    const hoje = new Date();
-    // formato BR (DD/MM/AAAA) → só para mostrar
-    const dataBR = hoje.toLocaleDateString("pt-BR");
-    // mostra para o usuário
-    document.getElementById("dataTexto").textContent = dataBR;
-    // define o valor do campo hidden (vai junto no POST)
-    document.getElementById("data").value = dataBR;
-    </script>
+            <hr>
 
+            <label for="observacao"><h2>Observação:</h2></label>
+            <textarea id="observacao" name="observacao" rows="6" placeholder="Digite uma Observação..."></textarea>
 
-    <label for="numero_caminhao">Selecione o Caminhão:</label>
-    <select id="numero_caminhao" name="numero_caminhao">
-
-        <option value="34">34</option>
-        <option value="33">33</option>
-        <option value="33">32</option>
-        <option value="31">31</option>
-        <option value="30">30</option>
-        <option value="29">29</option>
-        <option value="28">28</option>
-        <option value="27">27</option>
-        <option value="26">26</option>
-        <option value="25">25</option>
-        <option value="24">24</option>
-        <option value="23">23</option>
-        <option value="22">22</option>
-        <option value="21">21</option>
-        <option value="20">20</option>
-        <option value="19">19</option>
-        <option value="18">18</option>
-        
-    </select>
-
-    <br><br>
-
-    <hr>
-
-    <h2>Itens:</h2>
-
-    
-    <div>
-    <input type="checkbox" id="pneu" name="pneu" value="ok">
-    <label for="pneu">Pneu</label>
-    <br>
-    <input type="checkbox" id="estepe" name="estepe" value="ok">
-    <label for="estepe">Estepe</label>
-    <br>
-    <input type="checkbox" id="adesivos_refletivos" name="adesivos_refletivos" value="ok">
-    <label for="adesivos_refletivos">Adesivos Refletivos</label>
-    <br>
-    <input type="checkbox" id="cinto_seguranca" name="cinto_seguranca" value="ok">
-    <label for="cinto_seguranca">Cinto Segurança</label>
-    <br>
-    <input type="checkbox" id="freio" name="freio" value="ok">
-    <label for="freio">Freio</label>
-    <br>
-    <input type="checkbox" id="tacografo" name="tacografo" value="ok">
-    <label for="tacografo">Tacógrafo</label>
-    <br>
-    <input type="checkbox" id="luzes" name="luzes" value="ok">
-    <label for="luzes">Luzes</label>
-    <br>
-    <input type="checkbox" id="farois" name="farois" value="ok">
-    <label for="farois">Faróis</label>
-    <br>
-    <input type="checkbox" id="indicadores" name="indicadores" value="ok">
-    <label for="indicadores">Indicadores</label>
-    <br>
-    <input type="checkbox" id="documento_veiculo" name="documento_veiculo" value="ok">
-    <label for="documento_veiculo">Documento</label>
-    
-    <br>
-    <br>
-
-    <hr>
-
-    <label for="observacao"><h2>Observação:</h2></label>
-    <textarea
-        class="textarea-style"
-        id="observacao"
-        name="observacao"
-        row="6"
-        cols="50"
-        placeholder="Digite uma Observação...">
-    </textarea>
-
+            <div class="botoes">
+                <button class="cancelar_checklist" type="reset"><b>Cancelar</b></button>
+                <button class="enviar_checklist" type="submit"><b>Enviar</b></button>
+            </div>
+        </form>
     </div>
-
-    <br>
-
-    <button class="cancelar_checklist" type="reset"><b>Cancelar</b></button> <button class="enviar_checklist" type="submit"><b>Enviar</b></button>
-
-    </form>
-
 </body>
-</html> 
+</html>

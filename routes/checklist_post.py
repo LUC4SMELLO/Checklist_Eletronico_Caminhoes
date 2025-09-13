@@ -18,7 +18,7 @@ def resultado_checklist():
     luzes = request.form.get("luzes", "vazio")
     farois = request.form.get("farois", "vazio")
     indicadores = request.form.get("indicadores", "vazio")
-    documentos_veiculo = request.form.get("documento_veiculo", "vazio")
+    documentos = request.form.get("documento", "vazio")
     observacao = request.form.get("observacao", "vazio")
 
     inserir_checklist(
@@ -34,7 +34,7 @@ def resultado_checklist():
         luzes,
         farois,
         indicadores,
-        documentos_veiculo,
+        documentos,
         observacao,
         )
 
@@ -52,6 +52,6 @@ def resultado_checklist():
         luzes=luzes,
         farois=farois,
         indicadores=indicadores,
-        documentos_veiculo=documentos_veiculo,
+        documentos_veiculo=documentos,
         observacao=observacao,
         )
