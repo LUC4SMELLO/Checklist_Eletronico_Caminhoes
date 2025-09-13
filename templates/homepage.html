@@ -3,45 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Página Inicial</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            text-align: center; /* centraliza textos do conteúdo */
-        }
 
-        header {
-            width: 100%;
-            display: flex;
-            align-items: center;   /* centraliza verticalmente */
-            justify-content: center; /* centraliza horizontalmente */
-            gap: 15px; /* espaço entre logo e texto */
-            margin-top: 20px;
-        }
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
 
-        header img {
-            height: 70px; /* tamanho da logo */
-        }
-
-        main {
-            margin-top: 40px;
-        }
-
-        .botao_cadastro {
-            font-weight: bold;
-            padding: 5px 30px;
-        }
-
-        .botao_login {
-            font-weight: bold;
-            padding: 5px 42px;
-        }
-
-        hr{
-            border: 3.5px solid silver;
-        }
-
-    </style>
 </head>
 <body>
     <header>
