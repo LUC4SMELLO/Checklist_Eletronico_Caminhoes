@@ -5,55 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 
-    <style>
-
-    .form-style {
-        width: 175px;
-        height: 150px;
-        border: 2px solid rgb(0, 0, 0);
-        padding: 25px;
-        border-radius: 5px;
-        background-color: rgb(255, 255, 255);
-    }
-
-    .button-submit {
-        width: 80px;
-        height: 22px;
-    }
-
-    .button-reset {
-        width: 80px;
-        height: 22px;
-    }
-
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
 
 </head>
 <body>
+    <header>
+        <h1>Login</h1>
+        <img src="{{ url_for('static', filename='images/logo_dbcambui_2.png') }}" alt="Logo da Empresa">
+    </header>
 
-    <h1>Login</h1>
-
-    <form action="/login" method="post" class="form-style">
-
-        <label for="nome_completo">Nome Completo:</label> <br>
-        <input class="input-style" type="text" id="nome_completo" name="nome_completo">
-
-        <br><br>
-
-        <label for="senha">Senha:</label> <br>
-        <input class="input-style" type="password" id="senha" name="senha">
-
-        <br><br>
-
-        <button class="button-reset" type="reset">Cancelar</button>
-
-        <button class="button-submit" type="submit">Entrar</button>
-
-        {% if erro %}
-            <p style="color:red;">{{erro}}</p>
-        {% endif %}
-
-    </form>
+    <hr>
     
+    <main>
+
+        <form action="/login" method="post" class="form-style">
+
+            <label class="nome_completo" for="nome_completo">Nome Completo:</label> <br>
+            <input class="input-style" type="text" id="nome_completo" name="nome_completo">
+
+            <br><br>
+
+            <label class="senha" for="senha">Senha:</label> <br>
+            <input class="input-style" type="password" id="senha" name="senha">
+
+            <br><br><br>
+
+            <button class="button-reset" type="reset">Cancelar</button>
+
+            <button class="button-submit" type="submit">Entrar</button>
+
+            {% if erro %}
+                <p style="color:red;">{{erro}}</p>
+            {% endif %}
+
+        </form>
+        
+    </main>
+
 </body>
 </html>
