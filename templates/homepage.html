@@ -2,12 +2,66 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Inicial</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center; /* centraliza textos do conteúdo */
+        }
+
+        header {
+            width: 100%;
+            display: flex;
+            align-items: center;   /* centraliza verticalmente */
+            justify-content: center; /* centraliza horizontalmente */
+            gap: 15px; /* espaço entre logo e texto */
+            margin-top: 20px;
+        }
+
+        header img {
+            height: 70px; /* tamanho da logo */
+        }
+
+        main {
+            margin-top: 40px;
+        }
+
+        .botao_cadastro {
+            font-weight: bold;
+            padding: 5px 30px;
+        }
+
+        .botao_login {
+            font-weight: bold;
+            padding: 5px 42px;
+        }
+
+        hr{
+            border: 3.5px solid silver;
+        }
+
+    </style>
 </head>
 <body>
-
-    <p>Página Inicial</p>
+    <header>
+        <img src="{{ url_for('static', filename='images/logo_dbcambui_2.png') }}" alt="Logo da Empresa">
+        <h1>Bem-vindo ao Checklist Diário</h1>
+    </header>
     
+    <hr>
+
+    <main>
+        <p>Faça login ou cadastre-se para continuar.</p> <br>
+
+        <a href="{{ url_for('cadastro.cadastro')}}">
+            <button class="botao_cadastro">Cadastro</button> <br><br>
+        </a>
+
+        <a href="{{ url_for('login.login')}}">
+            <button class="botao_login">Login</button>
+        </a>
+
+    </main>
 </body>
 </html>
