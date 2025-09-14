@@ -17,9 +17,9 @@ header img {
     height: 70px; /* tamanho da logo */
 }
 
-/* main {
-    margin-top: -10px;
-} */
+main {
+    margin-top: 40px;
+}
 
 .form-style {
     text-align: center;
