@@ -5,61 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checklist Enviado</title>
 
-    <style>
-
-    hr {
-        border: 3.5px solid silver;
-    }
-
-
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/resultado.css') }}">
 
 </head>
 <body>
 
-    <h1>Checklist Enviado Com Sucesso!</h1>
+    <div class="container">
+        <h1>Checklist Enviado Com Sucesso!</h1>
 
-    <hr>
+        <hr>
 
-    <h3>Informações:</h3>
+        <h3>Informações:</h3>
 
-    Data: {{data}}<br>
-    Usuário: {{usuario}}<br>
-    Caminhão: {{caminhao}}<br>
+        <div class="informacoes-container">
+            Data: {{data}}<br>
+            Usuário: {{usuario}}<br>
+            Caminhão: {{caminhao}}<br>
+        </div>
 
-    <hr>
+        <hr>
 
-    <h3>Itens:</h3>
-    Pneu: {{pneu}}<br>
-    Estepe: {{estepe}}<br>
-    Adesivos Refletivos: {{adesivos_refletivos}}<br>
-    Cinto de Segurança: {{cinto_seguranca}}<br>
-    Freio: {{freio}}<br>
-    Tacógrafo: {{tacografo}}<br>
-    Luzes: {{luzes}}<br>
-    Faróis: {{farois}}<br>
-    Indicadores: {{indicadores}}<br>
-    Documentos: {{documentos_veiculo}}<br>
-    Observação: {{observacao}}<br><br>
+        <h3>Itens:</h3>
+        <div class="itens">
+            Pneu: {{pneu}} <br>
+            Estepe: {{estepe}} <br>
+            Adesivos Refletivos: {{adesivos_refletivos}} <br>
+            Cinto de Segurança: {{cinto_seguranca}} <br>
+            Freio: {{freio}} <br>
+            Tacógrafo: {{tacografo}} <br>
+            Luzes: {{luzes}} <br>
+            Faróis: {{farois}} <br>
+            Indicadores: {{indicadores}} <br>
+            Documentos: {{documentos_veiculo}} <br>
+            Observação: {{observacao}} <br><br>
+        </div>
 
-    <hr>
+        <hr>
 
-    <h3>Obrigado!</h3>
+        <h3>Obrigado!</h3>
 
-    Os itens marcados são primordiais para a segurança. <br>
-    Em caso de erro, NÃO PROSSIGA com o veículo. <br> E contate imediatamente Aguinaldo ou Iago.
+        Os itens marcados são primordiais para a segurança. <br>
+        Em caso de erro, NÃO PROSSIGA com o veículo. <br> E contate imediatamente Aguinaldo ou Iago.
 
-    <br><br>
+        <br><br>
 
-    <hr>
-
-    <br>
-
-    Página Inicial <br>
-
-    <a href="/">
-        <button type="button">Clique Aqui</button>
-    </a>
+    </div>
 
 </body>
 </html>
