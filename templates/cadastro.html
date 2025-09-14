@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+
+
     <style>
 
     .form-style {
@@ -31,30 +34,40 @@
 </head>
 <body>
 
+    <header>
+        <h1>Checklist Diário</h1>
+        <img src="{{ url_for('static', filename='images/logo_dbcambui_2.png') }}" alt="Logo da Empresa">
+    </header>
+
+    <hr>
+
     <h1>Cadastro</h1>
 
-    <form action="/cadastro" method="post" class="form-style">
+    <main>
 
-        <label for="nome_completo">Nome Completo:</label> <br>
-        <input class="input-style" type="text" id="nome_completo" name="nome_completo">
+        <form action="/cadastro" method="post" class="form-style">
 
-        <br><br>
+            <label class="nome_completo" for="nome_completo">Nome Completo:</label> <br>
+            <input class="input-style" type="text" id="nome_completo" name="nome_completo">
 
-        <label for="senha">Senha:</label> <br>
-        <input class="input-style" type="password" class="senha" id="senha" name="senha">
+            <br><br>
 
-        <br><br>
+            <label class="senha" for="senha">Senha:</label> <br>
+            <input class="input-style" type="password" class="senha" id="senha" name="senha">
 
-        <button class="button-reset" type="reset">Cancelar</button>
+            <br><br><br>
 
-        <button class="button-submit" type="submit">Cadastrar</button>
+            <button class="button-reset" type="reset">Cancelar</button>
 
-        {% if erro %}
-            <p style="color:red;">{{erro}}</p>
-        {% endif %}
+            <button class="button-submit" type="submit">Cadastrar</button>
 
+            {% if erro %}
+                <p style="color:red;">{{erro}}</p>
+            {% endif %}
+        </form>
 
-    </form>
+    </main>
+
     
 </body>
 </html>
