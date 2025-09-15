@@ -14,6 +14,7 @@ def criar_banco_dados_checklist():
     data VARCHAR(10),
     usuario VARCHAR(50),
     caminhao VARCHAR(2),
+    tipo VARCHAR(7),
     pneu VARCHAR(10),
     estepe VARCHAR(10),
     adesivos_refletivos VARCHAR(10),
@@ -36,6 +37,7 @@ def inserir_checklist(
         data,
         usuario,
         caminhao,
+        tipo,
         pneu,
         estepe,
         adesivos_refletivos,
@@ -58,6 +60,7 @@ def inserir_checklist(
     data,
     usuario,
     caminhao,
+    tipo,
     pneu,
     estepe,
     adesivos_refletivos,
@@ -70,10 +73,11 @@ def inserir_checklist(
     documentos_veiculo,
     observacao
     )
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """, (
             data,
             usuario,
+            tipo,
             caminhao,
             pneu,
             estepe,
