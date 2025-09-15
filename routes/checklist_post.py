@@ -9,6 +9,7 @@ def resultado_checklist():
     data = request.form.get("data", "vazio")
     usuario = request.form.get("usuario", "vazio")
     caminhao = request.form.get("numero_caminhao", "vazio")
+    tipo = request.form.get("tipo", "vazio")
     pneu = request.form.get("pneu", "vazio")
     estepe = request.form.get("estepe", "vazio")
     adesivos_refletivos = request.form.get("adesivos_refletivos", "vazio")
@@ -25,6 +26,7 @@ def resultado_checklist():
         data,
         usuario,
         caminhao,
+        tipo,
         pneu,
         estepe,
         adesivos_refletivos,
@@ -43,6 +45,7 @@ def resultado_checklist():
         data=data,
         usuario=usuario,
         caminhao=caminhao,
+        tipo= str.capitalize(tipo),
         pneu=pneu,
         estepe=estepe,
         adesivos_refletivos=adesivos_refletivos,
