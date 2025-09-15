@@ -16,6 +16,8 @@
         <form action="/resultado_checklist" method="post">
             <hr>
 
+            <h2>Informações</h2>
+
             <div class="informacoes-container">
                 Data: <span id="dataTexto"></span><br><br>
                 Motorista: {{nome_usuario}}
@@ -34,7 +36,7 @@
                 document.getElementById("data").value = dataBR;
             </script>
             
-            <div class="select-container">
+            <div class="select-caminhao-container">
                 <label for="numero_caminhao">Selecione o Caminhão:</label>
                 <select id="numero_caminhao" name="numero_caminhao">
                     {% for i in range(34, 17, -1) %}
@@ -42,6 +44,16 @@
                     {% endfor %}
                 </select>
             </div>
+
+            <div class="select-tipo-container">
+                <label for="tipo">Selecione o Tipo:</label>
+                <select id="tipo" name="tipo">
+                    <option value="saida">Saída</option>
+                    <option value="retorno">Retorno</option>
+                </select>
+            </div>
+
+            <br>
 
             <hr>
             

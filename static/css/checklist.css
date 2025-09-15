@@ -60,7 +60,7 @@ textarea {
 .botoes {
     display: flex;
     justify-content: center;
-    gap: 92px;
+    gap: 95px;
     margin-top: 20px;
 }
 
@@ -90,10 +90,20 @@ select {
 }
 
 
-.select-container {
+.select-caminhao-container {
     display: flex;
     align-items: center; /* alinha verticalmente o label com o select */
     justify-content: center; /* centraliza horizontalmente no form */
     gap: 10px; /* espaço entre label e select */
-    margin: 10px 0; /* espaço acima/abaixo do container */
+    margin: 5px;
 }
+
+.select-tipo-container {
+    display: flex;
+    align-items: center; /* alinha verticalmente o label com o select */
+    justify-content: center; /* centraliza horizontalmente no form */
+    gap: 10px; /* espaço entre label e select */
+    margin: 15px;
+    margin-left: 7px;
+}
+
