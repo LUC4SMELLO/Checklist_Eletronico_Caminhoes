@@ -9,6 +9,19 @@ body {
     text-align: center; /* centraliza textos dentro do container */
 }
 
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;   /* centraliza verticalmente */
+    justify-content: center; /* centraliza horizontalmente */
+    gap: 15px; /* espaço entre logo e texto */
+    margin-top: 20px;
+}
+
+header img {
+    height: 70px; /* tamanho da logo */
+}
+
 .container {
     background: white;
     padding: 30px;
