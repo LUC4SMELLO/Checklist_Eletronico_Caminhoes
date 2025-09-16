@@ -1,4 +1,4 @@
-from flask import Blueprint, request, redirect, url_for, render_template
+from flask import Blueprint, request, flash, redirect, url_for, render_template
 
 from database.banco_dados_usuarios import (
     buscar_usuario,
@@ -18,14 +18,13 @@ def cadastro():
         resultado = buscar_usuario(nome_completo)
 
         if resultado:
-            erro = "Usuário Já Encontrado."
-
-            return render_template("cadastro.html", erro=erro)
+            flash("Usuário Já Encontrado.", "erro")
+            return render_template("cadastro.html")
         
         else:
-
             inserir_usuario(nome_completo, senha)
-
+            
+            flash("Cadastro Bem Sucedido!", "sucesso")
             return redirect(url_for("checklist.checklist", nome_usuario=nome_completo))
 
     return render_template("cadastro.html")

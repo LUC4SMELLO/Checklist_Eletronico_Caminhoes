@@ -22,6 +22,18 @@
 
     <main>
 
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="mensagens">
+                {% for category, message in messages %}
+                    <div class="alert {{ category }}">{{message}}</div>
+                {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        
+        <br>
+
         <form action="/cadastro" method="post" class="form-style">
 
             <label class="nome_completo" for="nome_completo">Nome Completo:</label> <br>
@@ -37,10 +49,7 @@
             <button class="button-reset" type="reset">Cancelar</button>
 
             <button class="button-submit" type="submit">Cadastrar</button>
-
-            {% if erro %}
-                <p style="color:red;">{{erro}}</p>
-            {% endif %}
+            
         </form>
 
     </main>
