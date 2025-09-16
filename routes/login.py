@@ -1,4 +1,4 @@
-from flask import Blueprint, request, redirect, url_for, render_template
+from flask import Blueprint, request, flash, redirect, url_for, render_template
 
 from database.banco_dados_usuarios import buscar_usuario
 
@@ -15,12 +15,12 @@ def login():
         resultado = buscar_usuario(nome_completo, senha)
 
         if resultado:
+            flash("Login Bem Sucedido!", "sucesso")
             return redirect(url_for("checklist.checklist", nome_usuario=nome_completo))
             
         else:
-            erro = "Usuário Não Encontrado."
-
-            return render_template("login.html", erro=erro)
+            flash("Usuário ou Senha Inválido.", "erro")
+            return render_template("login.html")
         
     
     return render_template("login.html")

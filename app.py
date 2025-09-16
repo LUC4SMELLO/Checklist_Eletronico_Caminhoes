@@ -11,6 +11,8 @@ from routes.cadastro import cadastro_bp
 inicializar_bancos_dados()
 
 app = Flask(__name__)
+app.secret_key = "secret_key"
+
 app.register_blueprint(homepage_bp)
 app.register_blueprint(checklist_bp)
 app.register_blueprint(checklist_post_bp)
