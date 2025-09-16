@@ -87,6 +87,7 @@ select {
     text-align: left; 
     justify-content: center;
     margin-left: -50px;
+    gap: 30px;
 }
 
 

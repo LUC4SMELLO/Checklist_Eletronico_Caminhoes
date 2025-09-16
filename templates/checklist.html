@@ -20,32 +20,30 @@
 
             <div class="informacoes-container">
                 Data: <span id="dataTexto"></span><br><br>
-                Motorista: {{nome_usuario}}
-            </div>
+                Motorista: {{nome_usuario}}<br>
 
-            <input type="hidden" name="usuario" id="usuario">
-            <script>
-                document.getElementById("usuario").value = "{{nome_usuario}}"
-            </script>
+                <input type="hidden" name="usuario" id="usuario">
+                <script>
+                    document.getElementById("usuario").value = "{{nome_usuario}}"
+                </script>
 
-            <input type="hidden" name="data" id="data">
-            <script>
-                const hoje = new Date();
-                const dataBR = hoje.toLocaleDateString("pt-BR");
-                document.getElementById("dataTexto").textContent = dataBR;
-                document.getElementById("data").value = dataBR;
-            </script>
+                <input type="hidden" name="data" id="data">
+                <script>
+                    const hoje = new Date();
+                    const dataBR = hoje.toLocaleDateString("pt-BR");
+                    document.getElementById("dataTexto").textContent = dataBR;
+                    document.getElementById("data").value = dataBR;
+                </script>
             
-            <div class="select-caminhao-container">
                 <label for="numero_caminhao">Selecione o Caminhão:</label>
                 <select id="numero_caminhao" name="numero_caminhao">
                     {% for i in range(34, 17, -1) %}
                     <option value="{{i}}">{{i}}</option>
                     {% endfor %}
                 </select>
-            </div>
 
-            <div class="select-tipo-container">
+                <br>
+
                 <label for="tipo">Selecione o Tipo:</label>
                 <select id="tipo" name="tipo">
                     <option value="saida">Saída</option>
