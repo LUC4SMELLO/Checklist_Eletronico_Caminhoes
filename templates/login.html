@@ -36,11 +36,13 @@
 
             <button class="button-submit" type="submit">Entrar</button>
 
-            {% if erro %}
-                <p style="color:red;">{{erro}}</p>
-            {% endif %}
-
         </form>
+
+        {% if erro %}
+            <p style="color:red;">{{erro}}</p>
+        {% endif %}
+
+
         
     </main>
 
