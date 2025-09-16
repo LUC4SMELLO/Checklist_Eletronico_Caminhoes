@@ -50,17 +50,21 @@ def excluir_usuario(nome_completo, senha):
     conexao.commit()
     conexao.close()
 
-def buscar_usuario(nome_completo):
+def buscar_usuario(nome_completo, senha=""):
 
     conexao = conectar_banco_dados_usuarios()
     cursor = conexao.cursor()
 
-    cursor.execute(
-    """
-    SELECT * FROM TabelaUsuarios
-    WHERE nome_completo = ?
-    """, (nome_completo,)
-    )
+    consulta_sql = "SELECT * FROM TabelaUsuarios WHERE nome_completo = ?"
+    parametros = []
+
+    parametros.append(nome_completo)
+
+    if senha:
+        consulta_sql += " AND senha = ?"
+        parametros.append(senha)
+
+    cursor.execute(consulta_sql, parametros)
 
     resultado = cursor.fetchall()
         
