@@ -15,7 +15,7 @@ def cadastro():
         nome_completo = request.form.get("nome_completo")
         senha = request.form.get("senha")
 
-        resultado = buscar_usuario(nome_completo)
+        resultado = buscar_usuario(nome_completo, senha)
 
         if resultado:
             flash("Usuário Já Encontrado.", "erro")
