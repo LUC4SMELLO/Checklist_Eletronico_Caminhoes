@@ -1,6 +1,6 @@
 from flask import Blueprint, request, flash, redirect, url_for, render_template
 
-from database.banco_dados_usuarios import buscar_usuario
+from backend.validadores.validar_login import validar_login
 
 login_bp = Blueprint("login", __name__)
 
@@ -12,14 +12,13 @@ def login():
         nome_completo = request.form.get("nome_completo")
         senha = request.form.get("senha")
 
-        resultado = buscar_usuario(nome_completo, senha)
-
-        if resultado:
-            return redirect(url_for("checklist.checklist", nome_usuario=nome_completo))
-            
-        else:
-            flash("Usuário ou Senha Inválido.", "erro")
+        valido, mensagem = validar_login(nome_completo, senha)
+        if not valido:
+            flash(mensagem, "erro")
             return render_template("login.html")
         
-    
+        else:
+            return redirect(url_for("checklist.checklist", nome_usuario=nome_completo))
+        
+          
     return render_template("login.html")
