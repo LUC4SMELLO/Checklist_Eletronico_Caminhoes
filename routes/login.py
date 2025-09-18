@@ -15,7 +15,6 @@ def login():
         resultado = buscar_usuario(nome_completo, senha)
 
         if resultado:
-            flash("Login Bem Sucedido!", "sucesso")
             return redirect(url_for("checklist.checklist", nome_usuario=nome_completo))
             
         else:
