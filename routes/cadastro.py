@@ -1,8 +1,6 @@
 from flask import Blueprint, request, flash, redirect, url_for, render_template
 
-from database.banco_dados_usuarios import (
-    inserir_usuario
-)
+from backend.models.usuarios import Usuario
 
 from backend.validadores.validar_cadastro import validar_cadastro
 
@@ -22,7 +20,10 @@ def cadastro():
             return render_template("cadastro.html")
         
         else:
-            inserir_usuario(nome_completo, senha)
+
+            novo_usuario = Usuario(nome_completo, senha)
+
+            novo_usuario.inserir_usuario()
     
             return redirect(url_for("checklist.checklist", nome_usuario=nome_completo))
 
