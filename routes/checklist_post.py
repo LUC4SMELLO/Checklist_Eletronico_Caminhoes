@@ -1,5 +1,6 @@
 from flask import Blueprint, request, render_template
-from database.banco_dados_checklist import inserir_checklist
+
+from backend.models.checklist import Checklist
 
 checklist_post_bp = Blueprint("checklist_post", __name__)
 
@@ -22,7 +23,7 @@ def resultado_checklist():
     documentos = request.form.get("documento", "vazio")
     observacao = request.form.get("observacao", "vazio")
 
-    inserir_checklist(
+    novo_checklist = Checklist(
         data,
         usuario,
         caminhao,
@@ -39,6 +40,8 @@ def resultado_checklist():
         documentos,
         observacao,
         )
+    
+    novo_checklist.inserir_checklist()
 
     return render_template(
         "resultado.html",
