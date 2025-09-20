@@ -36,8 +36,8 @@ class Usuario:
         conexao.commit()
         conexao.close()
 
-        
-    def buscar_usuario(self):
+    @staticmethod
+    def buscar_usuario(nome_completo, senha):
 
         conexao = conectar_banco_dados_usuarios()
         cursor = conexao.cursor()
@@ -46,7 +46,7 @@ class Usuario:
         """
         SELECT 1 FROM TabelaUsuarios
         WHERE nome_completo = ? AND senha = ?
-        """, (self.nome_completo, self.senha)
+        """, (nome_completo, senha)
         )
 
         resultado = cursor.fetchone()
