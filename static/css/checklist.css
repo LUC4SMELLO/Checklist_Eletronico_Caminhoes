@@ -108,3 +108,28 @@ select {
     margin-left: 7px;
 }
 
+.logout-icon {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.logout-icon img {
+    transition: transform 0.2s;
+    height: 25px;
+}
+
+.container-botao {
+    display: flex; /* Ou outro valor, dependendo do seu layout */
+    flex-direction: column; /* Coloca os elementos um abaixo do outro */
+    align-items: center; /* Centraliza os elementos horizontalmente, se desejado */
+    padding-top: 15px;
+    padding-left: 25px;
+}
+
+.label-sair {
+    font-size: x-small;
+    font-weight: bold;
+    padding-right: 5px;
+}

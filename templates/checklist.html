@@ -11,6 +11,19 @@
         <header>
             <h1>Checklist Diário</h1>
             <img src="{{ url_for('static', filename='images/logo_dbcambui_2.png') }}" alt="Logo da Empresa">
+
+            <div class="container-botao">
+                
+                <a href="{{ url_for('logout.logout')}}">
+                    <button name="sair" class="logout-icon">
+                        <img  src="{{ url_for('static', filename='images/logout_icon.png') }}" alt="Logout">
+                    </button> 
+                </a>
+
+                <label class="label-sair" for="sair">Sair</label>
+                
+            </div>
+
         </header>
 
         <form action="/resultado_checklist" method="post">
